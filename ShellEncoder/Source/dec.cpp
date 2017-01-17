@@ -27,9 +27,8 @@ int main() {
   string Shellcode;
   string clean;
 
- // Shellcode = "\xd9\xeb\x9b\xd9\x74\x24\xf4\x31\xd2\xb2\x77\x31\xc9\x64\x8b";
-  
-  cout<<"Enter Shellcode: ";
+ 
+  cout<<"Enter Encoded Shellcode: ";
   cin>>Shellcode;
   clean = replace(Shellcode, "z","\\");
   output = replace(clean, "p", "x");
