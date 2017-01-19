@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
-// Replace function..
+
+
+// Character Switching function..
 string replace(string word, string target, string replacement){
     int len, loop=0;
     string nword="", let;
@@ -19,40 +22,43 @@ string replace(string word, string target, string replacement){
     return nword;
 
 }
-//Main..
-int main() {
-  string word;
-  string output,output1,output2,output3,output4,output5,output6,output7;
-  string output8,output9,outputa,outputb,outputc,outputd,outpute,outputf;
-  string Shellcode;
-  string clean;
 
- // Shellcode = "\xd9\xeb\x9b\xd9\x74\x24\xf4\x31\xd2\xb2\x77\x31\xc9\x64\x8b";
+
+// Shit Starts here
+int main() {
+
+  // Variables for holding changing shellcode 
+  string output,output0,output1,output2,output3,output4,output5,output6,output7;
+  string output8,output9,outputa,outputb,outputc,outputd,outpute,outputf,encoded;
+  string clean;
   
   cout<<"Enter Shellcode: ";
-  cin>>Shellcode;
-  clean = replace(Shellcode, "\\", "z");
-  output = replace(clean, "x", "p");
-  output1 = replace(output, "0","g");
-  output2 = replace(output1, "1","h");
-  output3 = replace(output2, "2","i");
-  output4 = replace(output3, "3","j");
-  output5 = replace(output4, "4","k");
-  output6 = replace(output5, "5","l");
-  output7 = replace(output6, "6","m");
-  output8 = replace(output7, "7","n");
-  output9 = replace(output8, "8","o");
-  outputa = replace(output9, "9","w");
-  outputb = replace(outputa, "a","q");
-  outputc = replace(outputb, "b","r");
-  outputd = replace(outputc, "c","s");
-  outpute = replace(outputd, "d","t");
-  outputf = replace(outpute, "e","v");
+  cin>>clean;
+  
+  // iterate on the shellcode and switch chars
+  output = replace(clean, "\\","g");
+  output0 = replace(output, "x", "h");
+  output1 = replace(output0, "0","i");
+  output2 = replace(output1, "1","j");
+  output3 = replace(output2, "2","k");
+  output4 = replace(output3, "3","l");
+  output5 = replace(output4, "4","m");
+  output6 = replace(output5, "5","o");
+  output7 = replace(output6, "6","p");
+  output8 = replace(output7, "7","q");
+  output9 = replace(output8, "8","s");
+  outputa = replace(output9, "9","u");
+  outputb = replace(outputa, "a","w");
+  outputc = replace(outputb, "b","y");
+  outputd = replace(outputc, "c","z");
+  outpute = replace(outputd, "d","_");
+  outputf = replace(outpute, "e","+");
+  encoded = replace(outputf, "f","=");
 
-
-  cout<<"Encoded Shellcode"<<endl;
+  
+  cout<<"New Encoded Shellcode : "<<endl;
  
-  cout<<outputf<<endl;
+  cout<<encoded<<endl;
   return 0;
 }
 
