@@ -1,0 +1,17 @@
+#!/bin/bash
+
+git_dir=`pwd`
+
+cd $git_dir
+
+remote_git=$1
+
+git remote add upstream $remote_git
+
+git fetch upstream
+
+git checkout master
+
+git rebase upstream/master
+
+git push origin master
