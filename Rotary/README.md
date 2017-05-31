@@ -1,14 +1,14 @@
-# Make ROT
+# Make ROT (mkrot)
 
 ### Make all possible shits/rotations in the alphabets (26 shifts).
 
-mkrot.py can help you bruteforce or decode plaintext from a substitution cipher (Ceaser cipher) encoded string. Can come in handy in a CTF challenge.
+`mkrot.py` can help you bruteforce or decode plaintext from a substitution cipher (Ceaser cipher) encoded string. Can come in handy in a CTF challenge.
 
 It replaces/shifts a letter recursively with all the alphabet 26 letters. You MUST get a plaintext but you'll need to check all the 26 possible rotations and pick a valid dictionary word.
 
 ### Note to users :
 
-The is a chance you might get two or maybe more words that seems legit from the 26 rotational output. In this case, mkrot.py can't help you, use your insticts? But at least it will lower your scope of 26 possible guesses to less than 5.
+There is a chance you might get two or maybe more words that seem legit, from the 26 rotational output. In this case, `mkrot.py` can't help you, use your insticts? But at least it will lower your scope of 26 possible guesses to less than 5.
 
 ## Rotation Maps :
 
@@ -60,7 +60,7 @@ mkrot 10 = GetxyviXliJpek
 .......
 redacted
 ```
-
+### Output
 
 `mkrot 6` contains a string that is readable. Using the Rotation Map, `ROT20` was used to creat the cipher text `WujnolyNbyZfua`
 
