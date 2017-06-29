@@ -36,6 +36,6 @@ rm -rf .config/menus
 # Finish
 apt-get -y autoremove --purge
 apt-get clean
-echo "Debian now Kali!
+echo "Debian now Kali!"
 echo "Rebooting"
 
