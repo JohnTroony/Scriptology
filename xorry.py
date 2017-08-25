@@ -4,43 +4,59 @@ import optparse
 import sys
 
 
-def xorobfuscator(plaintext, keyid):
-    '''XOR Operation on a plaintext using keyid'''
+class xorOperation():
+    ''' Xor Operations for Obfuscation and deObfuscation of strings.'''
 
-    encoded = ""
+    def __init__(self, stringInput, keyId):
+        self.stringInput = stringInput
+        self.keyId = keyId
 
-    for i in range(0, len(plaintext), len(keyid)):
-        start = i
-        end = i + len(keyid)
+    def obfuscate(self):
+        '''XOR Operation on a plain-text using the key id supplied.'''
 
-        for x, y in zip(plaintext[start:end], keyid):
-            encoded += chr(ord(x) ^ ord(y))
+        plaintext = self.stringInput
+        keyid = self.keyId
 
-    return encoded
+        encoded = ""
 
+        for i in range(0, len(plaintext), len(keyid)):
+            start = i
+            end = i + len(keyid)
 
-def xorDeobfuscator(obfuscated, keyid):
-    '''Reverse XOR Operation on an obufscated string using keyid'''
+            for x, y in zip(plaintext[start:end], keyid):
+                encoded += chr(ord(x) ^ ord(y))
 
-    decoded = ""
+        return encoded
 
-    for i in range(0, len(obfuscated), len(keyid)):
-        start = i
-        end = i + len(keyid)
+    def deobfuscate(self):
+        '''Reverse XOR Operation on an obfuscated string
+         using key id supplied.'''
 
-        for x, y in zip(obfuscated[start:end], keyid):
-            decoded += chr(ord(x) ^ ord(y))
+        obfuscated = self.stringInput
+        keyid = self.keyId
 
-    return decoded
+        decoded = ""
+
+        for i in range(0, len(obfuscated), len(keyid)):
+            start = i
+            end = i + len(keyid)
+
+            for x, y in zip(obfuscated[start:end], keyid):
+                decoded += chr(ord(x) ^ ord(y))
+
+        return decoded
 
 
 def main():
+    '''Main function to run if xorry.py is executed. Otherwise if imported,
+    there is no need to run this function'''
 
     parser = optparse.OptionParser(
-        'xorry.py -m < mode de/ob> -s <string> -k <key> ')
+        'xorry.py -m de/ob -s string -k key ')
 
     parser.add_option('-m', dest='mode',
-                      type='string', help='Mode of Operation')
+                      type='string',
+                      help='Mode of Operation (ob or de)')
 
     parser.add_option('-s', dest='plaintext', type='string',
                       help='String for manipulation')
@@ -62,15 +78,20 @@ def main():
         hiddenBin = plaintext.decode("hex")
         keyBin = keyid.decode("hex")
 
-        decoded = xorDeobfuscator(hiddenBin, keyBin).encode("hex")
+        xorry = xorOperation(hiddenBin, keyBin)
+        decoded = xorry.deobfuscate()
+        deobufString = decoded.encode("hex")
 
-        print("Deobfuscated String : %s" % decoded)
+        print("Deobfuscated String : %s" % deobufString.decode("hex"))
         print("Key Used : %s " % keyBin.encode("hex"))
+        print("Key String : %s " % keyBin)
 
     elif (mode == "ob"):
+        xorry = xorOperation(plaintext, keyid)
+        encoded = xorry.obfuscate()
+        obufString = encoded.encode("hex")
 
-        ObufString = xorobfuscator(plaintext, keyid).encode("hex")
-        print("Obfuscated String : %s " % ObufString)
+        print("Obfuscated String : %s " % obufString)
         print("Key Used : %s " % keyid.encode("hex"))
 
 
