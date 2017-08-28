@@ -49,7 +49,7 @@ class xorOperation():
 
 def main():
     '''Main function to run if xorry.py is executed. Otherwise if imported,
-    there is no need to run this function'''
+    there is no need to run this function.'''
 
     parser = optparse.OptionParser(
         'xorry.py -m de/ob -s string -k key ')
