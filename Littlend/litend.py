@@ -3,78 +3,90 @@
 import sys
 
 
-#import struct
-#memAddr = sys.argv[1]  # e.g 0xdeadbeef
+# import struct
+# memAddr = sys.argv[1]  # e.g 0xdeadbeef
 
-#reverse = struct.pack('<I', memAddr)
-#print reverse
+# reverse = struct.pack('<I', memAddr)
+# print reverse
 
+class endian():
 
+    def __init__(self, memaddr, separator="\\x"):
+        self.memaddr = memaddr
+        self.separator = separator
 
-def hex_shellcode(memaddr):
-	'''Writes a given Memory Address (e.g. beefdade) in Little Endian in this format: \xde\xda\xef\xbe '''
+    def hex_shellcode(self):
+        '''Writes a given memory_addr   Address (e.g. beefdade)
+        in Little Endian in this format: \xde\xda\xef\xbe '''
 
-	little_endian = ''
+        memory_addr = self.memaddr
+        little_endian = ''
 
-	while len(memaddr) > 0:
-	    little_endian = '\\x%s'%memaddr[:2] + little_endian
-	    memaddr = memaddr[2:]
+        while len(memory_addr) > 0:
+            little_endian = '\\x%s' % memory_addr[:2] + little_endian
+            memory_addr = memory_addr[2:]
 
-	return little_endian
+        return little_endian
 
+    def reverse_order(self):
+        '''Writes a given memory address
+         (e.g. beefdade) in Little Endian'''
 
-def reverse_order(memaddr):
-	'''Writes a given Memory Address (e.g. beefdade) in Little Endian 
-	   without any additional format characters/separators : dedaefbe '''
+        memory_addr = self.memaddr
+        little_endian = ''
 
-	little_endian = ''
+        while len(memory_addr) > 0:
+            little_endian = '%s' % memory_addr[:2] + little_endian
+            memory_addr = memory_addr[2:]
 
-	while len(memaddr) > 0:
-	    little_endian = '%s'%memaddr[:2] + little_endian
-	    memaddr = memaddr[2:]
+        return little_endian
 
-	return little_endian
+    def custom_char(self):
+        '''Writes a given memory_address
+         (e.g. beefdade) in Little Endian '''
+        sep = self.separator
+        memory_addr = self.memaddr
 
+        little_endian = ''
 
-def custom_char(memaddr, separator):
-	'''Writes a given Memory Address (e.g. beefdade) in Little Endian 
-	   with an additional format characters/separators supplied by the user ( e.g. sep=/ ): /de/da/ef/be '''
-	sep = separator
+        while len(memory_addr) > 0:
+            little_endian = '%s%s' % (sep, memory_addr[:2] + little_endian)
+            memory_addr = memory_addr[2:]
 
-	little_endian = ''
-
-	while len(memaddr) > 0:
-	    little_endian = '%s%s'%(sep,memaddr[:2] + little_endian)
-	    memaddr = memaddr[2:]
-
-	return little_endian
-
+        return little_endian
 
 
 def main():
- 	
- 	# First argument Must be the Memory-Address
-	memaddr = sys.argv[1]
-	
-	# Default transformation if no option is set
-	if len(sys.argv) == 2:
-		result = reverse_order(memaddr)
-		print result
 
-	# When Option is set, check for action.
-	elif len(sys.argv) == 3:
+    # First argument Must be the memory_addr  -Address
+    memaddr = sys.argv[1]
 
-		# Action when custom separator is supplied
-		if sys.argv[2].startswith("sep="):
-			separator = sys.argv[2].strip("sep=")
-			result = custom_char(memaddr,separator)
-			print result
+    # Default transformation if no option is set
+    if len(sys.argv) == 2:
 
-		# Action for incluing "\x" on output
-		elif sys.argv[2] == 'x':
-			result = hex_shellcode(memaddr)
-			print result
+        result = endian(memaddr)
+        output = result.reverse_order()
+
+        print(output)
+
+    # When Option is set, check for action.
+    elif len(sys.argv) == 3:
+
+        # Action when custom separator is supplied
+        if sys.argv[2].startswith("sep="):
+            separator = sys.argv[2].strip("sep=")
+
+            result = endian(memaddr, separator)
+            output = result.custom_char()
+
+            print(output)
+
+        # Action for incluing "\x" on output
+        elif sys.argv[2] == 'x':
+            result = endian(memaddr)
+            output = result.hex_shellcode()
+            print(output)
 
 
 if __name__ == '__main__':
-	main()
+    main()
