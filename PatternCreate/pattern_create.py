@@ -64,14 +64,13 @@ while program:
 
     elif program and arguments[1] == 'find':
 
-        bytes = arguments[2]
+        bytes = arguments[2].decode("hex")
 
         myFile = open('pattern.txt', 'r')
         testString = myFile.read()
         marker = [m.start(0) for m in re.finditer(bytes, testString)]
 
-        print('The first character int your string is \
-        the {0}th number in the file'.format(marker[0] + 1))
+        print('The first character int your string is the {0}th number in the file'.format(marker[0] + 1))
 
         program = False
 
