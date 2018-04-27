@@ -1,0 +1,41 @@
+#operate as root or with SuperUser privigeles.
+#open /etc/apt/sources.list 
+
+#and add the following lines
+
+
+#Default repos
+deb http://http.kali.org/kali kali main non-free contrib
+deb http://security.kali.org/kali-security kali/updates main contrib non-free
+
+#Source repos
+deb-src http://http.kali.org/kali kali main non-free contrib
+deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
+
+#Bleeding Edge repos
+deb http://repo.kali.org/kali kali-bleeding-edge main
+deb-src http://repo.kali.org/kali kali-bleeding-edge main 
+
+#OTHERS
+#deb http://http.kali.org/ /kali main contrib non-free
+#deb http://http.kali.org/ /wheezy main contrib non-free
+#deb http://http.kali.org/kali kali-dev main contrib non-free
+#deb http://http.kali.org/kali kali-dev main/debian-installer
+#deb-src http://http.kali.org/kali kali-dev main contrib non-free
+#deb http://http.kali.org/kali kali main contrib non-free
+#deb http://http.kali.org/kali kali main/debian-installer
+#deb-src http://http.kali.org/kali kali main contrib non-free
+#deb http://security.kali.org/kali-security kali/updates main contrib non-free
+#deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
+#deb http://repo.kali.org/kali kali-bleeding-edge main
+
+
+
+#2 update system sources and cache
+apt-get update
+
+#3 install kernel-headers
+apt-get install -y linux-headers-$(uname -r)
+
+#4 install Virtual-box
+apt-get install -y virtualbox
