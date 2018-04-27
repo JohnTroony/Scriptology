@@ -1,0 +1,12 @@
+Jun  5 15:29:14 C0d3s kernel: [79969.561188] usb usb3: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.561766] usb usb4: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562200] usb usb5: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562401] usb usb6: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562614] usb usb7: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.776056] usb 2-4: reset high-speed USB device number 2 using ehci-pci
+Jun  5 15:29:14 C0d3s kernel: [79969.561188] usb usb3: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.561766] usb usb4: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562200] usb usb5: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562401] usb usb6: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.562614] usb usb7: root hub lost power or was reset
+Jun  5 15:29:14 C0d3s kernel: [79969.776056] usb 2-4: reset high-speed USB device number 2 using ehci-pci
