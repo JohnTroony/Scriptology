@@ -130,7 +130,6 @@ _layouts/help.aspx
 _layouts/viewlsts.aspx
 _layouts/mobile/mbllists.aspx
 _layouts/listedit.aspx
-_Layouts inurl:authenticate.aspx
 _Layouts/authenticate.aspx
 pages/login.aspx
 _layouts/areanavigationsettings.aspx
@@ -145,7 +144,7 @@ _Layouts
 _layouts/
 directory/_layouts/
 pages/default.aspx
-_layouts inurl:useredit.aspx
+_layouts/useredit.aspx
 _layouts/aclinv.aspx
 _layouts/addrole.aspx
 _layouts/associatedgroups.aspx
@@ -162,7 +161,6 @@ _layouts/picker.aspx
 _layouts/role.aspx
 _layouts/user.aspx
 _layouts/userdisp.aspx
-_layouts/useredit.aspx
 _layouts/viewgrouppermissions.aspx
 _layouts/NewDwp.aspx
 _layouts/spcf.aspx
